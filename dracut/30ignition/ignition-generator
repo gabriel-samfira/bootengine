@@ -71,9 +71,6 @@ EOF
     fi
     # Configure hostname from metadata through afterburn on platforms that don't set it via DHCP
     add_wants flatcar-metadata-hostname.service
-    if [[ $(cmdline_arg flatcar.oem.id) == "openstack" ]] || [[ $(cmdline_arg coreos.oem.id) == "openstack" ]]; then
-        add_wants flatcar-openstack-hostname.service
-    fi
 else
     # If we're doing a non-Ignition (subsequent) boot, then
     # queue a different target.  This is necessary so that units
